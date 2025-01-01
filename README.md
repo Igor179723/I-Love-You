@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ffe6e6, #f8b8d0);
-            color: #333;
+            background: linear-gradient(120deg, #f4c9d1, #f8e3e0);
+            color: #4a4a4a;
             margin: 0;
             padding: 0;
             display: flex;
@@ -29,41 +29,46 @@
 
         h1 {
             color: #d6336c;
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            font-weight: bold;
+            font-size: 4.2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
             letter-spacing: 2px;
-            text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.7);
             animation: fadeIn 2s ease-in-out;
         }
 
         @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+            max-width: 750px;
             color: #4a4a4a;
-            line-height: 1.8;
+            line-height: 1.6;
             font-style: italic;
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+            text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.7);
             animation: fadeIn 3s ease-in-out;
         }
 
         .button {
             display: inline-block;
-            margin-top: 20px;
-            padding: 14px 35px;
+            padding: 15px 35px;
             background-color: #d6336c;
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 600;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
 
         .button:hover {
@@ -75,21 +80,46 @@
             transform: translateY(0);
         }
 
-        /* Subtle Glow Effect */
-        .button {
-            background-image: linear-gradient(45deg, #f06, #d6336c);
-            background-size: 200% 200%;
-            animation: glowing 3s ease-in-out infinite;
+        .button:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: pulseEffect 0.6s ease-out;
         }
 
-        @keyframes glowing {
-            0% { background-position: 200% 200%; }
-            50% { background-position: -200% -200%; }
-            100% { background-position: 200% 200%; }
+        @keyframes pulseEffect {
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* Subtle Background Blur */
+        .blur-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/1600x900/?romantic,flowers');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            z-index: -1;
+            animation: fadeInBackground 3s ease-out;
+        }
+
+        @keyframes fadeInBackground {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
+    <div class="blur-background"></div>
     <h1>Специјална Порака за Ирина</h1>
     <p>
         Even if the night sky was filled with stars, I would
